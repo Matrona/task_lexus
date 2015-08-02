@@ -1,0 +1,55 @@
+.layer-clouds {
+	visibility: hidden;
+	height: 1740px;
+	background-image: url('../images/layer-clouds-bottom.jpg'), url('../images/layer-clouds-top.jpg');
+	background-repeat: no-repeat;
+	background-position: bottom center, top center;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+.layer-car {
+	visibility: hidden;
+	height: 4797px;
+	background-image: url('../images/layer-car-top.png'), url('../images/layer-car-bottom.jpg');
+	background-repeat: no-repeat;
+	background-position: top center, bottom center;
+	width: 100%;
+	position: absolute;
+	top: 0;
+}
+
+.content {
+	visibility: hidden;
+	position: relative;
+	width: 1202px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 355px 0 0 0;
+}
+
+.content_item {
+	box-sizing: border-box;
+	height: 642px;
+	border: 1px solid #fff;
+	border-radius: 2px;
+	background-color: rgba(29, 31, 38, .5);
+}
+
+.info {
+	margin: 0 0 1070px 0;
+}
+
+.tour {
+	margin: 0 0 1070px 0;
+}
+
+.features {
+	margin: 0 0 1070px 0;
+}
+
+.colors {
+	margin: 0 0 279px 0;
+}

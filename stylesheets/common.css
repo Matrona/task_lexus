@@ -1,0 +1,13 @@
+html {
+	height: 100%;
+}
+
+body {
+	font: 14px/18px Arial, Helvetica sans-serif;
+	width: 100%;
+	min-width: 1205px;
+	height: 100%;
+	color: #1d1f26;
+	background-color: #0a0d14;
+	position: relative;
+}

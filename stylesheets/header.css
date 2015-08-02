@@ -1,0 +1,102 @@
+.header {
+	position: fixed;
+	visibility: hidden;
+	z-index: 15;
+	width: 1160px;
+	min-height: 58px;
+	border: 1px solid #2e353b;
+	background-color: #1b1e25;
+	color: #fff;
+	top: 116px;
+	left: 50%;
+	margin-left: -580px;
+}
+
+.header-top {
+	box-sizing: border-box;
+	height: 58px;
+	padding: 17px 23px 0 19px;
+}
+
+.header-logo {
+	float: right;
+}
+
+.header-title {
+	font-family: 'FuturaLightLight';
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 38px;
+	margin: 5px 0 0 0;
+	letter-spacing: -0.2px;
+	cursor: pointer;
+	position: relative;
+}
+
+.header-title:before {
+	content: "";
+	position: absolute;
+	top: 4px;
+	right: -35px;
+	height: 7px;
+	width: 12px;
+	background-image: url('../images/menu-arrow.png');
+	background-repeat: no-repeat;
+}
+
+.header-menu {
+	box-sizing: border-box;
+	list-style: none;
+	font-size: 0;
+	border-top: 1px solid #2e353b;
+	display: none;
+}
+
+.header-menu-item {
+	display: inline-block;
+	font-size: 11px;
+	font-weight: bold;
+	border-right: 1px solid #2e353b;
+	width: 183px;
+	height: 56px;
+	box-sizing: border-box;
+}
+
+.header-menu-item a {
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	box-sizing: border-box;
+	height: 56px;
+	padding: 26px 23px 0 23px;
+	position: relative;
+}
+
+.header-menu-item a:before {
+	content: "";
+	position: absolute;
+	top: 30px;
+	left: 14px;
+	height: 9px;
+	width: 5px;
+	background-image: url('../images/menu-arrow-right.png');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.header-menu-item:hover {
+	background-color: #fff;
+}
+
+.header-menu-item:hover a {
+	color: #1d1f26;
+}
+
+.header-menu-item:hover a:before {
+	background-image: url('../images/menu-arrow-right.png');
+	background-position: 0 -45px;
+}
+
+.header-title:hover .header-menu {
+	display: block;
+}

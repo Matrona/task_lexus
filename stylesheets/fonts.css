@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'FuturaLightLight';
+  src: url('../fonts/FuturaLightLight.eot');
+  src: url('../fonts/FuturaLightLight.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/FuturaLightLight.woff2') format('woff2'),
+       url('../fonts/FuturaLightLight.woff') format('woff'),
+       url('../fonts/FuturaLightLight.ttf') format('truetype'),
+       url('../fonts/FuturaLightLight.svg#FuturaLightLight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
