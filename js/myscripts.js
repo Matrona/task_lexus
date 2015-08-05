@@ -7,7 +7,7 @@ function preloader() {
 jQuery(window).load(function () {
 	preloader();
 	jQuery(".preloader").delay(1000).fadeOut();
-})
+});
 
 $(function () {
 
@@ -16,14 +16,13 @@ $(function () {
 	var $hiddenEl = $('.js-visibility');
 
 	var $window = $(window);
+	var $body = $('body, html');
 
 	var $headerT = $('.header-title');
 	var $menu = $('.header-menu');
 
-	var $slides = $('.content_item');
 	var $menuLinks = $('a[href^="#"]');
 	var marginTop = 90;
-	var firstActive = $slides.first().addClass('active').offset().top;
 
 	$hiddenEl.css('visibility', 'visible');
 
@@ -32,8 +31,8 @@ $(function () {
 		return false;
 	});
 
-//Background scroll
-	
+	//Background scroll
+
 	$window.bind('scroll', function () {
 		var scrollTop = $(this).scrollTop();
 
@@ -50,69 +49,59 @@ $(function () {
 	});
 
 
-//Menu scroll
+	//Menu scroll
+
+	function scrollTo(posItem) {
+		$body.animate({
+			scrollTop: posItem - marginTop
+		}, 2000, 'easeInOutExpo');
+	}
 
 	$menuLinks.click(function () {
-		$slides.removeClass('active');
 		var current = $(this).attr('href');
-		$(current).addClass('active');
-		var offset = $(current).offset();
-		var offsetTop = offset.top;
-		var totalScroll = offsetTop - marginTop;
+		var offsetTop = $(current).offset().top;
 		if (current.length !== 0) {
-			$('html, body').animate({
-				scrollTop: totalScroll
-			}, 2000, 'easeInOutExpo');
+			scrollTo(offsetTop)
 		}
 		return false;
 	});
 
-//Content scroll
-	
+	//Content scroll
+
 	$window.load(function () {
 		var timer = setTimeout(function () {
-			$('body, html').animate({
-				scrollTop: firstActive - marginTop
-			}, 2000, 'easeInOutExpo');
-
+			scrollTo(posInfo);
 			clearTimeout(timer);
-		}, 800);
+		}, 2000);
 	});
 
-	$(document).on('mousewheel DOMMouseScroll', function (e) {
-		e.preventDefault();
-		
-		var activeSlide = $('.content_item.active');
-		var delta = e.originalEvent.detail < 0 || e.originalEvent.wheelDelta > 0 ? 1 : -1;
+	var $info = $('.info'),
+		$tour = $('.tour'),
+		$features = $('.features'),
+		$colors = $('.colors');
 
-		if (delta < 0) {
+	var posInfo = $info.offset().top;
+	var posTour = $tour.offset().top;
+	var posFeatures = $features.offset().top;
+	var posColors = $colors.offset().top;
 
-			next = activeSlide.next();
-			if (next.length) {
-				var timer = setTimeout(function () {
-					$('body, html').animate({
-						scrollTop: next.offset().top - marginTop
-					}, 2000, 'easeInOutExpo');
-					next.addClass('active')
-						.siblings().removeClass('active');
-					clearTimeout(timer);
-				});
+	$(window).scroll(function () {
+		var scroll = $(window).scrollTop();
+		clearTimeout($.data(this, "scrollCheck"));
+		$.data(this, "scrollCheck", setTimeout(function () {
+			if (scroll <= 1532) {
+				scrollTo(posInfo);
 			}
-		} else {
-			prev = activeSlide.prev();
-
-			if (prev.length) {
-				var timer = setTimeout(function () {
-					$('body, html').animate({
-						scrollTop: prev.offset().top - marginTop
-					}, 2000, 'easeInOutExpo');
-					prev.addClass('active')
-						.siblings().removeClass('active');
-					clearTimeout(timer);
-				});
+			if ((scroll > 1533) && (scroll <= 3244)) {
+				scrollTo(posTour);
 			}
-
-		}
+			if ((scroll > 3244) && (scroll <= 4956)) {
+				scrollTo(posFeatures);
+			}
+			if (scroll > 4957) {
+				scrollTo(posColors);
+			}
+		}, 1000));
 	});
 
 });
